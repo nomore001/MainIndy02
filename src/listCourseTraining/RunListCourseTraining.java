@@ -2,8 +2,9 @@ package listCourseTraining;
 
 import java.util.Vector;
 
-import downloadDocument.*;
-import fillRegisterProfile.*;
+import uploadDocument.CourseTraining;
+import uploadDocument.SearchCourseTraining;
+import fillRegisterProfile.Register;
 
 public class RunListCourseTraining {
 
