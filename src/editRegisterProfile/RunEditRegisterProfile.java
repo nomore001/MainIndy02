@@ -6,10 +6,20 @@ public class RunEditRegisterProfile {
 
 	public static void main(String[] args) {
 		Register register = new Register("Qtp001", "1/7/2557", 5, "10/7/2557", 5, "20/7/2557", 2500);
-		Trainee trainee = new Trainee("นางสาว", "อัญชลี มณีนก", "ต่ำกว่าปริญญาตรี", new String[] { "Tester" }, 
-				"0836234763", "unchalee.fern@gmail.com", "ยังไม่ได้ชำระเงิน", "3/7/2557", "2500.1");
+		Trainee trainee = new Trainee("นางสาว", "อัญชลี มณีนก", "ต่ำกว่าปริญญาตรี", "0836234763", 
+				"unchalee.fern@gmail.com", "ยังไม่ได้ชำระเงิน", "3/7/2557", "2500.1");
+		Occupation occ1 = new Occupation(true, "Tester");
+		Occupation occ2 = new Occupation(false, "Administrator");
+		Occupation occ3 = new Occupation(false, "Programmer");
+		Occupation occ4 = new Occupation(false, "System analyst");
+		Occupation occ5 = new Occupation(true, "Teacher");
 		Address address = new Address("", "111", "", "หนองหาร", "สันทราย", "เชียงใหม่", "50290");
 		Login login = new Login("unchalee", "10012536");
+		trainee.addOccupation(occ1);
+		trainee.addOccupation(occ2);
+		trainee.addOccupation(occ3);
+		trainee.addOccupation(occ4);
+		trainee.addOccupation(occ5);
 		trainee.addAddress(address);
 		trainee.addLogin(login);
 		register.addTrainee(trainee);
@@ -27,7 +37,8 @@ public class RunEditRegisterProfile {
 		String title = "นางสาว";
 		String name = "BAS";
 		String education = "ต่ำกว่าปริญญาตรี";
-		String[] occupation = {"Tester", "Administrator"};
+		boolean[] occupation = {true, true, false, false, true};
+		String other = "Student";
 		String telNo = "0836234763";
 		String email = "unchalee.fern@gmail.com";
         String workplace = "itsci" ; 
@@ -40,7 +51,7 @@ public class RunEditRegisterProfile {
 		//7 – ระบบรับค่าข้อมูลการแก้ไขข้อมูล
 		//8 – ระบบบันทึกข้อมูลการแก้ไข
 		//9 – ระบบคืนค่าสถานการณ์ตรวจสอบจากฐานข้อมูล
-        theTrainee = theTrainee.editTrainee(title, name, education, occupation, telNo, email, workplace, addressNo, street, subDistrict, district, province, zipcode);
+        theTrainee = theTrainee.editTrainee(title, name, education, occupation, other, telNo, email, workplace, addressNo, street, subDistrict, district, province, zipcode);
         //10 – ระบบตรวจสอบสถานะการคืนค่า
         if(theTrainee != null){
         	//11 – ระบบแสดงข้อมูลผู้ใช้ที่ถูกบันทึก

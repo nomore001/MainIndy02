@@ -28,4 +28,8 @@ public class Choice {
 	public void setSelectedValue(int selectedValue) {
 		this.selectedValue = selectedValue;
 	}
+	
+	public String toString(){
+		return "\t" + this.choiceQuestion + "\t" + this.selectedValue;
+	}
 }

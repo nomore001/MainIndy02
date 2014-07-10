@@ -22,7 +22,11 @@ public class RunFillRegisterProfile {
 		String title = "นางสาว";
 		String name = "อัญชลี มณีนก";
 		String education = "ต่ำกว่าปริญญาตรี";
-		String[] occupation = { "Tester" };
+		Occupation occ1 = new Occupation(true, "Tester");
+		Occupation occ2 = new Occupation(false, "Administrator");
+		Occupation occ3 = new Occupation(false, "Programmer");
+		Occupation occ4 = new Occupation(false, "System analyst");
+		Occupation occ5 = new Occupation(true, "Teacher");
 		String telNo = "0836234763";
 		String email = "unchalee.fern@gmail.com";
 
@@ -62,19 +66,25 @@ public class RunFillRegisterProfile {
 			// 17 – ระบบคืนค่าสถานะการตรวจสอบจากฐานข้อมูล
 			Address address = new Address(workplace, addressNo, street, subDistrict, district, province, zipcode);
 			Login login = new Login(username, password);
-			trainee = new Trainee(title, name, education, occupation, telNo, email, traineeStatus, registerDate, traineePayment);
+			trainee = new Trainee(title, name, education, telNo, email, traineeStatus, registerDate, traineePayment);
 			trainee.addAddress(address);
 			trainee.addLogin(login);
-			Trainee traineeRegisterAdd = register.addTrainee(trainee);
+			trainee.addOccupation(occ1);
+			trainee.addOccupation(occ2);
+			trainee.addOccupation(occ3);
+			trainee.addOccupation(occ4);
+			trainee.addOccupation(occ5);
+			register.addTrainee(trainee);
 			
 			// 18 – ระบบตรวจสอบสถานะการคืนค่า
-			if(traineeRegisterAdd!=null){
+			Trainee searchTrainee = register.searchTraineeByUsername(username);
+			if(searchTrainee!=null){
 				// 19 – ระบบแสดงข้อมูลการเข้าสู่ระบบให้แก่ผู้ใช้ทราบโดยระบบจะแสดงชื่อผู้ใช้เป็นข้อความ “ลงทะเบียนเรียบร้อยแล้วกรุณาตรวจสอบข้อมูลของท่าน 
 				//ชื่อผู้ใช้ของคุณคือ.... และ รหัสผ่านของคุณคือ...”
 				System.out.println("ลงทะเบียนเรียบร้อยแล้วกรุณาตรวจสอบข้อมูลของท่าน ชื่อผู้ใช้ของคุณคือ "
-						+ traineeRegisterAdd.getLogin().getUsername()
+						+ searchTrainee.getLogin().getUsername()
 						+ " และ รหัสผ่านของคุณคือ "
-						+ traineeRegisterAdd.getLogin().getPassword());
+						+ searchTrainee.getLogin().getPassword());
 			}else{
 				System.out.println("เกิดข้อผิดพลาด : ไม่สามารถลงทะเบียนได้");
 			}

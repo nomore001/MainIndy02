@@ -4,8 +4,7 @@ import fillRegisterProfile.*;
 public class Run {
 
 	public static void main(String[] args) {
-		Trainee trainee = new Trainee("นางสาว", "อัญชลี มณีนก", "ต่ำกว่าปริญญาตรี", 
-				new String[] { "Tester", "Administrator" }, "0836234763", 
+		Trainee trainee = new Trainee("นางสาว", "อัญชลี มณีนก", "ต่ำกว่าปริญญาตรี", "0836234763", 
 				"unchalee.fern@gmail.com", "ยังไม่ได้ชำระเงิน", "3/7/2557", "2500.1");
 		//2 – ระบบแสดงแบบฟอร์มการประเมินคุณภาพของการอบรม
 		//3 – ผู้ใช้กรอกข้อมูลการประเมินคุณภาพของการอบรม

@@ -17,4 +17,8 @@ public class Suggestion {
 	public void setAnswerSuggestion(String answerSuggestion) {
 		this.answerSuggestion = answerSuggestion;
 	}
+	
+	public String toString(){
+		return "\t" + this.answerSuggestion;
+	}
 }

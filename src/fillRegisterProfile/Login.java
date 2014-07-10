@@ -35,5 +35,11 @@ public class Login {
 		this.status = status;
 	}
 	
-	
+	public String toString(){
+		String text = "";
+		text += "ส่วนที่ 3 ข้อมูลการเข้าสู่ระบบ\n";
+		text += "\tชื่อผู้ใช้ : " + this.username;
+		text += "\n\tรหัสผ่าน : " + this.password;
+		return text;
+	}
 }

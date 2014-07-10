@@ -46,9 +46,8 @@ public class Register {
 		return traineeVector;
 	}
 
-	public Trainee addTrainee(Trainee trainee){
+	public void addTrainee(Trainee trainee){
 		traineeVector.addElement(trainee);
-		return trainee;
 	}
 	
 	public Trainee searchTraineeByName(String name) {

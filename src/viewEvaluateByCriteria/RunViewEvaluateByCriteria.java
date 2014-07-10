@@ -21,8 +21,8 @@ public class RunViewEvaluateByCriteria {
 		
 		Evaluation evaluation1 = new Evaluation("แบบประเมินหลักสูตรการอบรม Qtp");
 		
-		Trainee trainee1 = new Trainee("นางสาว", "อัญชลี มณีนก", "ต่ำกว่าปริญญาตรี", new String[] { "Tester", "Administrator" }, 
-				"0836234763", "unchalee.fern@gmail.com", "ยังไม่ได้ชำระเงิน", "3/7/2557", "2500.1");
+		Trainee trainee1 = new Trainee("นางสาว", "อัญชลี มณีนก", "ต่ำกว่าปริญญาตรี", "0836234763", 
+				"unchalee.fern@gmail.com", "ยังไม่ได้ชำระเงิน", "3/7/2557", "2500.1");
 		topic11.addChoiceQuestion(choice11);
 		topic11.addChoiceQuestion(choice12);
 		topic12.addChoiceQuestion(choice13);
@@ -47,8 +47,8 @@ public class RunViewEvaluateByCriteria {
 		
 		Evaluation evaluation2 = new Evaluation("แบบประเมินหลักสูตรการอบรม Qtp");
 		
-		Trainee trainee2 = new Trainee("นางสาว", "สมหญิง ใจดี", "ต่ำกว่าปริญญาตรี", new String[] { "Tester", "Administrator" }, 
-				"0836234763", "fern@gmail.com", "ยังไม่ได้ชำระเงิน", "3/7/2557", "2500.2");
+		Trainee trainee2 = new Trainee("นางสาว", "สมหญิง ใจดี", "ต่ำกว่าปริญญาตรี", "0836234763", 
+				"fern@gmail.com", "ยังไม่ได้ชำระเงิน", "3/7/2557", "2500.2");
 		
 		topic21.addChoiceQuestion(choice21);
 		topic21.addChoiceQuestion(choice22);
@@ -67,7 +67,7 @@ public class RunViewEvaluateByCriteria {
 		
 		//ถ้าเลือก 1 ต้องการดูผลการประเมินของทุกคน
 		//ถ้าเลือก 2 ต้องการดูรายบุคคล
-		int selectedForm = 2;
+		int selectedForm = 1;
 		//2 – ระบบรับข้อมูลหลักสูตรการอบรมและรูปแบบการผลการประเมินที่ผู้ใช้เลือก
 		//3 – ระบบค้นหาผลการประเมินจากฐานข้อมูล
 		//4 – ระบบคืนค่าผลการประเมิน

@@ -1,5 +1,7 @@
 package fillRegisterProfile;
 
+import java.util.Vector;
+
 import evaluation.Evaluation;
 
 public class Trainee {
@@ -7,7 +9,6 @@ public class Trainee {
 	private String title;
 	private String name;
 	private String education;
-	private String[] occupation;
 	private String telNo;
 	private String email;
 	private String traineeStatus;
@@ -16,18 +17,18 @@ public class Trainee {
 	
 	private Login login;
 	private Address address;
+	private Vector<Occupation> occVector = new Vector<Occupation>();
 	private Evaluation evaluation;
 	
 	public Trainee(){
 		
 	}
 	
-	public Trainee(String title, String name, String education, String[] occupation, String telNo, 
-			String email, String traineeStatus, String registerDate, String trainePayment){
+	public Trainee(String title, String name, String education,  String telNo,  String email, 
+			String traineeStatus, String registerDate, String trainePayment){
 		this.title = title;
 		this.name = name;
 		this.education = education;
-		this.occupation = occupation;
 		this.telNo = telNo;
 		this.email = email;
 		this.traineeStatus = traineeStatus;
@@ -35,69 +36,6 @@ public class Trainee {
 		this.trainePayment = trainePayment;
 	}
 	
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getEducation() {
-		return education;
-	}
-	public void setEducation(String education) {
-		this.education = education;
-	}
-	
-	public String[] getOccupation() {
-		return occupation;
-	}
-	public void setOccupation(String[] occupation) {
-		this.occupation = occupation;
-	}
-	
-	public String getTelNo() {
-		return telNo;
-	}
-	public void setTelNo(String telNo) {
-		this.telNo = telNo;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	public String getTraineeStatus() {
-		return traineeStatus;
-	}
-	public void setTraineeStatus(String traineeStatus) {
-		this.traineeStatus = traineeStatus;
-	}
-	
-	public String getRegisterDate() {
-		return registerDate;
-	}
-	public void setRegisterDate(String registerDate) {
-		this.registerDate = registerDate;
-	}
-	
-	public String getTrainePayment() {
-		return trainePayment;
-	}
-	public void setTrainePayment(String trainePayment) {
-		this.trainePayment = trainePayment;
-	}
-
 	public Login getLogin() {
 		return login;
 	}
@@ -111,16 +49,23 @@ public class Trainee {
 	}
 	
 	public Trainee editTrainee(String title, String name, String education,
-			String[] occupation, String telNo, String email, String workplace, 
-			String addressNo, String street, String subDistrict, String district, 
+			boolean[] occupation, String other, String telNo, String email, 
+			String workplace, String addressNo, String street, String subDistrict, String district, 
 			String province, String zipcode) {
+		for(int i=0 ; i<4 ; i++){
+			if(this.isSelected(occupation[i])){
+				this.occVector.get(i).editOccupation(occupation[i]);
+			}
+		}
+		if(this.isOccExist(occupation[4])){
+			this.occVector.get(4).editOther(other);
+		}
 		this.getAddress().editAddress(workplace, addressNo, street, subDistrict, district, province, zipcode);
-		this.setTitle(title);
-		this.setName(name);
-		this.setEducation(education);
-		this.setOccupation(occupation);
-		this.setTelNo(telNo);
-		this.setEmail(email);
+		this.title = title;
+		this.name = name;
+		this.education = education;
+		this.telNo = telNo;
+		this.email = email;
 		return this;
 	}
 	
@@ -138,22 +83,64 @@ public class Trainee {
 	
 	public String toString() {
 		String text = "ส่วนที่ 1 ข้อมูลส่วนตัว\n";
-		text = text + "\tชื่อ-นามสกุล : " + getTitle() + " " + getName()
-				+ "\n" + "\tวุฒิการศึกษา : " + getEducation() + "\n"
+		text = text + "\tชื่อ-นามสกุล : " + this.title + " " + this.name
+				+ "\n" + "\tวุฒิการศึกษา : " + this.education + "\n"
 				+ "\tตำแหน่งงาน : ";
-		for (int i = 0; i < getOccupation().length; i++) {
-			if (i == 0) {
-				text = text + occupation[i];
-			} else {
-				text = text + ", " + occupation[i];
+		for (int i = 0 ; i < occVector.size() ; i++) {
+			if(occVector.get(i).getSelected()){
+				if (i == 0) {
+					text = text + occVector.get(i).getOccupationName();
+				} else {
+					text = text + ", " + occVector.get(i).getOccupationName();
+				}
 			}
 		}
-		text = text + "\n\tเบอร์โทรศัพท์ : " + getTelNo() + "\n"
-				+ "\tอีเมล์ : " + getEmail() + "\n";
+		text = text + "\n\tเบอร์โทรศัพท์ : " + this.telNo + "\n"
+				+ "\tอีเมล์ : " + this.email + "\n";
 		return text;
 	}
 	
 	public void editPaymentStatus(String traineeStatus) {
 		this.traineeStatus = traineeStatus;
 	}
+	
+	public void addOccupation(Occupation occ){
+		this.occVector.addElement(occ);
+	}
+	
+	public boolean isSelected(boolean check){
+		if(check){
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isOccExist(boolean other){
+		if(other){
+			return true;
+		}
+		return false;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public String getTraineeStatus() {
+		return this.traineeStatus;
+	}
+
+	public String getRegisterDate() {
+		return this.registerDate;
+	}
+
+	public void setTraineeStatus(String traineeStatus) {
+		this.traineeStatus = traineeStatus;
+	}
+
+	public String getTitle() {
+		return this.title;
+	}
+
+	
 }
