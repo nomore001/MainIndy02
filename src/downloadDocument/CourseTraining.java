@@ -45,7 +45,7 @@ public class CourseTraining {
 		return null;
 	}
 	
-	public Vector<TrainingDocument> listAllDocument() {
+	public Vector<TrainingDocument> listAllDocument(String selectCourse) {
 		return trainingDocumentVector;
 	}
 	

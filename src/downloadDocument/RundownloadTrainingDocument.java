@@ -18,7 +18,7 @@ public class RundownloadTrainingDocument {
 		
 //		2 – ระบบค้นหาข้อมูลเอกสารของการอบรมจากฐานข้อมูล
 //		3 – ระบบคืนค่าข้อมูลเอกสารของการอบรมจากฐานข้อมูล
-		Vector<TrainingDocument> trainingDoc = searchCourseTraining.getCourseTrainingVector().elementAt(0).listAllDocument();
+		Vector<TrainingDocument> trainingDoc = searchCourseTraining.getCourseTrainingVector().elementAt(0).listAllDocument("QTP");
 //		4 – ระบบแสดงข้อมูลเอกสาร
 		for(int i=0 ; i<trainingDoc.size() ; i++){
 			System.out.println((i+1) + " - " + trainingDoc.elementAt(i).toString());
