@@ -1,4 +1,4 @@
-package uploadDocument;
+package downloadDocument;
 
 import java.util.Vector;
 

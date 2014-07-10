@@ -1,4 +1,4 @@
-package uploadDocument;
+package downloadDocument;
 
 public class TrainingDocument {
 	private String documentName;

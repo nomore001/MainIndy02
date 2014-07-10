@@ -2,9 +2,9 @@ package listDocument;
 
 import java.util.Vector;
 
-import uploadDocument.CourseTraining;
-import uploadDocument.SearchCourseTraining;
-import uploadDocument.TrainingDocument;
+import downloadDocument.CourseTraining;
+import downloadDocument.SearchCourseTraining;
+import downloadDocument.TrainingDocument;
 
 public class RunListDocument {
 

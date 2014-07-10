@@ -2,6 +2,10 @@ package uploadDocument;
 
 import java.util.Vector;
 
+import downloadDocument.CourseTraining;
+import downloadDocument.SearchCourseTraining;
+import downloadDocument.TrainingDocument;
+
 
 
 public class RunuploadDocument {

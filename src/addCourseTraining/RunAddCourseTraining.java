@@ -1,6 +1,6 @@
 package addCourseTraining;
-import uploadDocument.CourseTraining;
-import uploadDocument.SearchCourseTraining;
+import downloadDocument.CourseTraining;
+import downloadDocument.SearchCourseTraining;
 import fillRegisterProfile.Register;
 
 public class RunAddCourseTraining {
