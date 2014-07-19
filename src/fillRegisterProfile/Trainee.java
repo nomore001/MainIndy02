@@ -10,6 +10,7 @@ public class Trainee {
 	private String name;
 	private String education;
 	private String telNo;
+	private String other;
 	private String email;
 	private String traineeStatus;
 	private String registerDate;
@@ -86,7 +87,7 @@ public class Trainee {
 		text = text + "\tชื่อ-นามสกุล : " + this.title + " " + this.name
 				+ "\n" + "\tวุฒิการศึกษา : " + this.education + "\n"
 				+ "\tตำแหน่งงาน : ";
-		for (int i = 0 ; i < occVector.size() ; i++) {
+		for (int i = 0 ; i < occVector.size()-1 ; i++) {
 			if(occVector.get(i).getSelected()){
 				if (i == 0) {
 					text = text + occVector.get(i).getOccupationName();
@@ -94,6 +95,9 @@ public class Trainee {
 					text = text + ", " + occVector.get(i).getOccupationName();
 				}
 			}
+		}
+		if(occVector.get(4).getSelected()){
+			text = text + ", " + this.other;
 		}
 		text = text + "\n\tเบอร์โทรศัพท์ : " + this.telNo + "\n"
 				+ "\tอีเมล์ : " + this.email + "\n";
@@ -106,6 +110,12 @@ public class Trainee {
 	
 	public void addOccupation(Occupation occ){
 		this.occVector.addElement(occ);
+	}
+	
+	public void addOther(Occupation occ, String other){
+		if(occ.getSelected()){
+			this.other = other;
+		}
 	}
 	
 	public boolean isSelected(boolean check){

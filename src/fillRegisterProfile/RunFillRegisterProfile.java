@@ -26,7 +26,8 @@ public class RunFillRegisterProfile {
 		Occupation occ2 = new Occupation(false, "Administrator");
 		Occupation occ3 = new Occupation(false, "Programmer");
 		Occupation occ4 = new Occupation(false, "System analyst");
-		Occupation occ5 = new Occupation(true, "Teacher");
+		Occupation occ5 = new Occupation(true, "Other");
+		String other = "Teacher";
 		String telNo = "0836234763";
 		String email = "unchalee.fern@gmail.com";
 
@@ -74,6 +75,7 @@ public class RunFillRegisterProfile {
 			trainee.addOccupation(occ3);
 			trainee.addOccupation(occ4);
 			trainee.addOccupation(occ5);
+			trainee.addOther(occ5, other);
 			register.addTrainee(trainee);
 			
 			// 18 – ระบบตรวจสอบสถานะการคืนค่า
@@ -85,6 +87,7 @@ public class RunFillRegisterProfile {
 						+ searchTrainee.getLogin().getUsername()
 						+ " และ รหัสผ่านของคุณคือ "
 						+ searchTrainee.getLogin().getPassword());
+				System.out.println(searchTrainee.toString());
 			}else{
 				System.out.println("เกิดข้อผิดพลาด : ไม่สามารถลงทะเบียนได้");
 			}
